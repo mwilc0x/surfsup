@@ -1,0 +1,50 @@
+{
+  "name": "surfsup",
+  "version": "0.0.0",
+  "description": "Node wrapper for Marine/Sailing/Surfing Weather API",
+  "main": "bin/index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mjw56/surfsup.git"
+  },
+  "keywords": [
+    "marine",
+    "sailing",
+    "surfing",
+    "coastal",
+    "weather",
+    "ocean",
+    "waves",
+    "storm",
+    "storms",
+    "hurricane",
+    "typhoon",
+    "beach",
+    "tsunami"
+  ],
+  "author": "Mike Wilcox <mwilcox56@gmail.com> (http://github.com/mjw56)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mjw56/surfsup/issues"
+  },
+  "homepage": "https://github.com/mjw56/surfsup",
+  "devDependencies": {
+    "mocha": "^1.21.5",
+    "chai": "^1.9.2",
+    "chai-spies": "^0.5.1",
+    "gulp-mocha": "^1.1.1",
+    "gulp": "^3.8.8"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://raw.githubusercontent.com/mjw56/hackerfire/master/LICENSE"
+    }
+  ]
+}
