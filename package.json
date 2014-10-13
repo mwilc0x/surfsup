@@ -34,6 +34,9 @@
     "url": "https://github.com/mjw56/surfsup/issues"
   },
   "homepage": "https://github.com/mjw56/surfsup",
+  "dependencies": {
+    "request-promise": "^0.2.2"
+  },
   "devDependencies": {
     "mocha": "^1.21.5",
     "chai": "^1.9.2",
