@@ -24,8 +24,9 @@ module.exports = {
   /**
   * Get Marine Weather
   */
-  getMarineWeather: () => {
-
+  getMarineWeather: (input) => {
+    input.page = 'marine.ashx?';
+    return rp(constructUrl(input));
   },
 
   /**
