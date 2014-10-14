@@ -7,8 +7,7 @@
     "test": "tests"
   },
   "scripts": {
-    "prepublish": "tsc --module commonjs --declaration lib/index.ts",
-    "test": "gulp tests"
+    "prepublish": "gulp scripts"
   },
   "repository": {
     "type": "git",
@@ -39,6 +38,7 @@
     "request-promise": "^0.2.2"
   },
   "devDependencies": {
+    "typescript": "1.0.1",
     "mocha": "^1.21.5",
     "chai": "^1.9.2",
     "chai-spies": "^0.5.1",
