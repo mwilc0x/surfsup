@@ -29,5 +29,5 @@ gulp.task('scripts', function() {
                        }));
 
     tsResult.dts.pipe(gulp.dest('release/definitions'));
-    return tsResult.js.pipe(gulp.dest('.'));
+    return tsResult.js.pipe(gulp.dest('bin/'));
 });

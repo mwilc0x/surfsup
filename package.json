@@ -1,13 +1,14 @@
 {
   "name": "surfsup",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Node wrapper for Marine/Sailing/Surfing Weather API",
-  "main": "index.js",
+  "main": "bin/index.js",
   "directories": {
     "test": "tests"
   },
   "scripts": {
-    "prepublish": "tsc --module commonjs --declaration index.ts"
+    "prepublish": "gulp scripts",
+    "test": "gulp tests"
   },
   "repository": {
     "type": "git",
@@ -38,7 +39,6 @@
     "request-promise": "^0.2.2"
   },
   "devDependencies": {
-    "typescript": "1.0.1",
     "mocha": "^1.21.5",
     "chai": "^1.9.2",
     "chai-spies": "^0.5.1",
