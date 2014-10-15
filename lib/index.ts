@@ -44,7 +44,7 @@ class SurfsUp {
   /**
   * Helper to construct URL with request params
   */
-  private _constructUrl(inputs: any): any {
+  private _constructUrl(inputs: any): string {
 
     var url = this._baseURL,
         count = 0;
