@@ -1,64 +1,71 @@
-'use strict';
+/// <reference path='../node-0.11.d.ts' />
 
-var _key = (process.env.WEATHER_KEY || ""),
-    _baseURL = 'http://api.worldweatheronline.com/free/v1/',
-    rp = require('request-promise');
+var rp = require('request-promise');
 
-module.exports = {
+class SurfsUp {
+  public _key: string;
+  public _baseURL: string;
+
+  constructor() {
+    this._key = (process.env.WEATHER_KEY || "");
+    this._baseURL = 'http://api.worldweatheronline.com/free/v1/';
+  }
 
   /**
   * Get Local Weather
   */
-  getLocalWeather: (input) => {
+  getLocalWeather(input: any) {
     input.page = 'weather.ashx?';
-    return rp(constructUrl(input));
-  },
+    return rp(this._constructUrl(input));
+  }
 
   /**
   * Get Ski & Mountain Weather
   */
-  getSkiMountainWeather: () => {
+  getSkiMountainWeather() {
 
-  },
+  }
 
   /**
   * Get Marine Weather
   */
-  getMarineWeather: (input) => {
+  getMarineWeather(input: any) {
     input.page = 'marine.ashx?';
-    return rp(constructUrl(input));
-  },
+    return rp(this._constructUrl(input));
+  }
 
   /**
   * Get Time Zone Data
   */
-  getTimeZoneData: () => {
+  getTimeZoneData() {
 
   }
 
-}
+  /**
+  * Helper to construct URL with request params
+  */
+  private _constructUrl(inputs: any): any {
 
-/**
-* Helper to construct URL with request params
-*/
-function constructUrl(inputs: any): any {
+    var url = this._baseURL,
+        count = 0;
 
-  var base = _baseURL,
-      count = 0;
+    url += inputs.page;
 
-  base += inputs.page;
+    for(var key in inputs) {
 
-  for(var key in inputs) {
-
-    if(count === 0) {
-      base += [key.toString(), '=', inputs[key]].join('');
-    } else {
-      base += ['&', key.toString(), '=', inputs[key]].join('');
+      if(count === 0) {
+        url += [key.toString(), '=', inputs[key]].join('');
+      } else {
+        url += ['&', key.toString(), '=', inputs[key]].join('');
+      }
+      count++;
     }
-    count++;
+
+    url += ['&key=', this._key].join('');
+
+    return url;
   }
 
-  base += ['&key=', _key].join('');
-
-  return base;
 }
+
+export = SurfsUp;
