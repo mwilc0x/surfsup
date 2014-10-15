@@ -34,9 +34,11 @@ SET WEATHER_KEY=<your key here>
 **Get Local Weather**
 
 ```sh
-var surfsup = require('surfsup');
+var SurfsUp = require('surfsup');
 
-surfsup.getLocalWeather({ q: 'Teahupoo, Tahiti', format: 'json' }).then(function(response) {
+var su = new SurfsUp();
+
+su.getLocalWeather({ q: 'Teahupoo, Tahiti', format: 'json' }).then(function(response) {
   console.log(response);
 });
 
@@ -57,9 +59,11 @@ Available Input Parameters:
 **Get Marine Weather**
 
 ```sh
-var surfsup = require('surfsup');
+var SurfsUp = require('surfsup');
 
-surfsup.getMarineWeather({ q: '45,-2', format: 'json' }).then(function(response) {
+var su = new SurfsUp();
+
+su.getMarineWeather({ q: '45,-2', format: 'json' }).then(function(response) {
   console.log(response);
 });
 
@@ -79,7 +83,7 @@ Available Input Parameters:
 ## Compile TypeScript
 
 ```sh
-gulp scripts
+gulp compile
 ```
 
 ## Tests
