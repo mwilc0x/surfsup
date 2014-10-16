@@ -15,6 +15,7 @@ class SurfsUp {
   * Get Local Weather
   */
   getLocalWeather(input: any) {
+    input = input || {};
     input.page = 'weather.ashx?';
     return rp(this._constructUrl(input));
   }
@@ -30,6 +31,7 @@ class SurfsUp {
   * Get Marine Weather
   */
   getMarineWeather(input: any) {
+    input = input || {};
     input.page = 'marine.ashx?';
     return rp(this._constructUrl(input));
   }
