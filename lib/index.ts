@@ -23,8 +23,10 @@ class SurfsUp {
   /**
   * Get Ski & Mountain Weather
   */
-  getSkiMountainWeather() {
-
+  getSkiMountainWeather(input: any) {
+    input = input || {};
+    input.page = 'ski.ashx?';
+    return rp(this._constructUrl(input));
   }
 
   /**
