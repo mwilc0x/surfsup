@@ -33,7 +33,24 @@
 
     });
 
-    it('should allow you to query for ski and mountain weather', function(){
+    it('should allow you to query for ski and mountain weather', function(done){
+      su.getSkiMountainWeather({ q: 'Salt Lake City', format: 'json' }).then(function(response) {
+        expect(response).to.not.be.undefined;
+        expect(response.data).to.be.defined;
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
+    });
+
+    it('should not break if undefined passed to ski mountainer method', function(done){
+
+      su.getSkiMountainWeather().then(function(response) {
+        expect(response).to.equal('<?xml version="1.0" encoding="UTF-8"?><data><error><msg>Unable to find any matching weather location to the query submitted!</msg></error></data>');
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
 
     });
 
