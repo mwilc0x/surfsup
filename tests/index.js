@@ -22,6 +22,8 @@
 
     });
 
+    
+
     it('should not break if undefined passed to local weather method', function(done){
 
       su.getLocalWeather().then(function(response) {
