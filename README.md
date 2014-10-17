@@ -106,6 +106,27 @@ Available Input Parameters:
 |   lang    | string | (Optional) Returns weather description text in the language of your choice. E.g:- lang=ar (Arabic). Visit Multilingual support page for more information: http://www.worldweatheronline.com/weather-api-multilingual.aspx |
 
 
+**Get Time Zone Data**
+
+```sh
+var SurfsUp = require('surfsup');
+
+var su = new SurfsUp();
+
+su.getTimeZoneData({ q: 'Lima, Peru', format: 'json' }).then(function(response) {
+  console.log(response);
+});
+
+```
+
+Available Input Parameters:
+
+| Parameter | Type | Description |
+| --------- | ---- | ----------- |
+|     q     | string | Pass US Zipcode, UK Postcode, Canada Postalcode, IP address, Latitude/Longitude (decimal degree) or city name |
+|  format   | string | Output format as JSON or XML |
+|  callback | string | (Optional) Only to be used for json callback feature. E.g:- callback=function_name |
+
 ## Compile TypeScript
 
 ```sh
