@@ -1,6 +1,7 @@
 /// <reference path='../typings/node-0.11.d.ts' />
 
 var rp = require('request-promise');
+import Query = require('query');
 
 class SurfsUp {
   public _key: string;
@@ -14,8 +15,8 @@ class SurfsUp {
   /**
   * Get Local Weather
   */
-  getLocalWeather(input: any) {
-    input = input || {};
+  getLocalWeather(input: Query) {
+    input = input || <Query>{};
     input.page = 'weather.ashx?';
     return rp(this._constructUrl(input));
   }
@@ -23,8 +24,8 @@ class SurfsUp {
   /**
   * Get Ski & Mountain Weather
   */
-  getSkiMountainWeather(input: any) {
-    input = input || {};
+  getSkiMountainWeather(input: Query) {
+    input = input || <Query>{};
     input.page = 'ski.ashx?';
     return rp(this._constructUrl(input));
   }
@@ -32,8 +33,8 @@ class SurfsUp {
   /**
   * Get Marine Weather
   */
-  getMarineWeather(input: any) {
-    input = input || {};
+  getMarineWeather(input: Query) {
+    input = input || <Query>{};
     input.page = 'marine.ashx?';
     return rp(this._constructUrl(input));
   }
@@ -48,7 +49,7 @@ class SurfsUp {
   /**
   * Helper to construct URL with request params
   */
-  private _constructUrl(inputs: any): string {
+  private _constructUrl(inputs: Query): string {
 
     var url = this._baseURL,
         count = 0;
