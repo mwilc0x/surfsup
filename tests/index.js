@@ -22,7 +22,7 @@
 
     });
 
-    
+
 
     it('should not break if undefined passed to local weather method', function(done){
 
@@ -45,7 +45,7 @@
       });
     });
 
-    it('should not break if undefined passed to ski mountainer method', function(done){
+    it('should not break if undefined passed to ski mountain method', function(done){
 
       su.getSkiMountainWeather().then(function(response) {
         expect(response).to.equal('<?xml version="1.0" encoding="UTF-8"?><data><error><msg>Unable to find any matching weather location to the query submitted!</msg></error></data>');
@@ -68,7 +68,7 @@
 
     });
 
-    it('should not break if undefined passed to local weather method', function(done){
+    it('should not break if undefined passed to marine weather method', function(done){
 
       su.getMarineWeather().then(function(response) {
         expect(response).to.equal('<?xml version="1.0" encoding="UTF-8"?><data><request><type>Unknown</type><query /></request><nearest_area /></data>');
@@ -79,7 +79,26 @@
 
     });
 
-    it('should allow you to search for time zone data', function() {
+    it('should allow you to query for time zone data', function(done) {
+
+      su.getTimeZoneData({ q: 'Lima, Peru', format: 'json' }).then(function(response) {
+        expect(response).to.not.be.undefined;
+        expect(response.data).to.be.defined;
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
+
+    });
+
+    it('should not break if undefined passed to time zone method', function(done){
+
+      su.getTimeZoneData().then(function(response) {
+        expect(response).to.equal('<?xml version="1.0" encoding="UTF-8"?><data><error><msg>Unable to find any matching weather location to the query submitted!</msg></error></data>');
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
 
     });
 

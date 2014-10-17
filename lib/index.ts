@@ -42,8 +42,10 @@ class SurfsUp {
   /**
   * Get Time Zone Data
   */
-  getTimeZoneData() {
-
+  getTimeZoneData(input: Query) {
+    input = input || <Query>{};
+    input.page = 'tz.ashx?';
+    return rp(this._constructUrl(input));
   }
 
   /**
