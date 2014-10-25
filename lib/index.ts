@@ -5,12 +5,26 @@ import Query = require('query');
 
 class SurfsUp {
   public _key: string;
+  public _mswkey: string;
   public _baseURL: string;
+  public _baseMSWURL: string;
+
 
   constructor() {
     this._key = (process.env.WEATHER_KEY || "");
-    this._baseURL = 'http://api.worldweatheronline.com/free/v1/';
+    this._mswkey = (process.env.MSW_KEY || "");
+    this._baseURL = 'http://api.worldweatheronline.com/free/v2/';
+    this._baseMSWURL = 'http://magicseaweed.com/api/';
   }
+
+  /**
+  * Get the surf report
+  */
+  getSurfReport(input: any) {
+    input = input || {};
+    return rp(this._constructMswUrl(input));
+  }
+
 
   /**
   * Get Local Weather
@@ -47,6 +61,24 @@ class SurfsUp {
     input.page = 'tz.ashx?';
     return rp(this._constructUrl(input));
   }
+
+
+  private _constructMswUrl(input) {
+
+    var url = this._baseMSWURL;
+
+    if(!input.fields)
+      return url += [this._mswkey, '/forecast?spot_id=', (input.spot || "")].join('');
+
+    var fields = '';
+
+    for(var i = 0; i < input.fields.length; i++) {
+      fields += [input.fields[i], ','].join('');
+    }
+
+    return url += [this._mswkey, '/forecast?spot_id=', (input.spot || ""), '&fields=', fields].join('');
+  }
+
 
   /**
   * Helper to construct URL with request params

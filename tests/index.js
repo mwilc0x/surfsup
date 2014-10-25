@@ -10,6 +10,19 @@
 
   describe('surfsup', function(){
 
+
+    it('should allow you to query for the surf report', function(done){
+
+      su.getSurfReport({ input: '10' }).then(function(response) {
+        expect(response).to.not.be.undefined;
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
+
+    });
+
+
     it('should allow you to query for local weather', function(done){
 
       su.getLocalWeather({ q: 'Teahupoo, Tahiti', format: 'json' }).then(function(response) {
