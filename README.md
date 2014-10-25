@@ -17,11 +17,11 @@ First, you'll have to grab an API key for yourself. No need to worry, they're fr
 
 https://developer.worldweatheronline.com/auth/register
 
-surfsup now supports magicseaweed! They are awesome and have an amazing website for surf report data.
+*surfsup now supports magicseaweed!* They are awesome and have an amazing website for surf report data! Check them out.
 
 http://magicseaweed.com/developer/forecast-api
 
-Set your keys as environment variable(s) on your machine...
+Set your key(s) as environment variable(s) on your machine...
 
 OSX:
 
@@ -166,6 +166,11 @@ gulp compile
 ```sh
 gulp tests
 ```
+
+## Pull Requests
+
+Please don't hesitate to submit a PR for something you'd like added. I'd <3 to have other contributions to this project!
+You can always reach me on [twitter](https://twitter.com/subr0utine) too.
 
 ## Issues
 [Issues](https://github.com/mjw56/surfsup/issues)
