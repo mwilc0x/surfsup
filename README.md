@@ -17,7 +17,11 @@ First, you'll have to grab an API key for yourself. No need to worry, they're fr
 
 https://developer.worldweatheronline.com/auth/register
 
-Then set it as an environment variable on your machine
+surfsup now supports magicseaweed! They are awesome and have an amazing website for surf report data.
+
+http://magicseaweed.com/developer/forecast-api
+
+Set your keys as environment variable(s) on your machine...
 
 OSX:
 
@@ -30,6 +34,30 @@ Windows:
 SET WEATHER_KEY=<your key here>
 ```
 
+Additionally, if you have an MSW key (magicseaweed) and would like to query for surf reports you can set it as well:
+
+```sh
+export MSW_KEY=<your key here>
+```
+Windows:
+
+```sh
+SET MSW_KEY=<your key here>
+```
+
+**Get Surf Report**
+
+(this requires an MSW key)
+
+```sh
+var SurfsUp = require('surfsup');
+
+var su = new SurfsUp();
+
+su.getSurfReport({ input: '10', fields: ['timestamp, wind.*,condition.temperature']}).then(function(response) {
+  console.log(response);
+});
+```
 
 **Get Local Weather**
 
