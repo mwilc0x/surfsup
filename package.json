@@ -1,6 +1,6 @@
 {
   "name": "surfsup",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Node wrapper for Marine/Sailing/Surfing Weather API",
   "main": "bin/index.js",
   "directories": {
