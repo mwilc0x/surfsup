@@ -22,7 +22,7 @@ class SurfsUp {
   */
   getSurfReport(input: any) {
     input = input || {};
-    return rp(this._constructMswUrl(input));
+    return rp(this._constructMswUrl(input)).promise();
   }
 
 
@@ -32,7 +32,7 @@ class SurfsUp {
   getLocalWeather(input: Query) {
     input = input || <Query>{};
     input.page = 'weather.ashx?';
-    return rp(this._constructUrl(input));
+    return rp(this._constructUrl(input)).promise();
   }
 
   /**
@@ -41,7 +41,7 @@ class SurfsUp {
   getSkiMountainWeather(input: Query) {
     input = input || <Query>{};
     input.page = 'ski.ashx?';
-    return rp(this._constructUrl(input));
+    return rp(this._constructUrl(input)).promise();
   }
 
   /**
@@ -50,7 +50,7 @@ class SurfsUp {
   getMarineWeather(input: Query) {
     input = input || <Query>{};
     input.page = 'marine.ashx?';
-    return rp(this._constructUrl(input));
+    return rp(this._constructUrl(input)).promise();
   }
 
   /**
@@ -59,7 +59,7 @@ class SurfsUp {
   getTimeZoneData(input: Query) {
     input = input || <Query>{};
     input.page = 'tz.ashx?';
-    return rp(this._constructUrl(input));
+    return rp(this._constructUrl(input)).promise();
   }
 
 
